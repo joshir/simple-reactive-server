@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    api 'io.projectreactor:reactor-core:3.5.5'
+    api 'pl.touk:throwing-function:1.3'
+}
+
+group = 'org.joshir'
+version = '1.0-SNAPSHOT'
+description = 'Archetype - reactive-server'
+java.sourceCompatibility = JavaVersion.VERSION_11
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
